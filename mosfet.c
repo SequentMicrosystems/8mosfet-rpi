@@ -191,12 +191,12 @@ int mosfetChSet(int dev, u8 channel, OutStateEnumType state)
 	int resp;
 	u8 buff[2];
 
-	if ( (channel < CHANNEL_NR_MIN) || (channel > RELAY_CH_NR_MAX))
+	if ( (channel < CHANNEL_NR_MIN) || (channel > MOSFET_CH_NR_MAX))
 	{
 		printf("Invalid mosfet nr!\n");
 		return ERROR;
 	}
-	if (FAIL == i2cMem8Read(dev, RELAY8_INPORT_REG_ADD, buff, 1))
+	if (FAIL == i2cMem8Read(dev, MOSFET8_INPORT_REG_ADD, buff, 1))
 	{
 		return FAIL;
 	}
@@ -205,11 +205,11 @@ int mosfetChSet(int dev, u8 channel, OutStateEnumType state)
 	{
 	case ON:
 		buff[0] &= ~ (1 << mosfetChRemap[channel - 1]);
-		resp = i2cMem8Write(dev, RELAY8_OUTPORT_REG_ADD, buff, 1);
+		resp = i2cMem8Write(dev, MOSFET8_OUTPORT_REG_ADD, buff, 1);
 		break;
 	case OFF:
 		buff[0] |= 1 << mosfetChRemap[channel - 1];
-		resp = i2cMem8Write(dev, RELAY8_OUTPORT_REG_ADD, buff, 1);
+		resp = i2cMem8Write(dev, MOSFET8_OUTPORT_REG_ADD, buff, 1);
 		break;
 	default:
 		printf("Invalid mosfet state!\n");
@@ -228,13 +228,13 @@ int mosfetChGet(int dev, u8 channel, OutStateEnumType* state)
 		return ERROR;
 	}
 
-	if ( (channel < CHANNEL_NR_MIN) || (channel > RELAY_CH_NR_MAX))
+	if ( (channel < CHANNEL_NR_MIN) || (channel > MOSFET_CH_NR_MAX))
 	{
 		printf("Invalid mosfet nr!\n");
 		return ERROR;
 	}
 
-	if (FAIL == i2cMem8Read(dev, RELAY8_INPORT_REG_ADD, buff, 1))
+	if (FAIL == i2cMem8Read(dev, MOSFET8_INPORT_REG_ADD, buff, 1))
 	{
 		return ERROR;
 	}
@@ -256,7 +256,7 @@ int mosfetSet(int dev, int val)
 
 	buff[0] = mosfetToIO(0xff & val);
 
-	return i2cMem8Write(dev, RELAY8_OUTPORT_REG_ADD, buff, 1);
+	return i2cMem8Write(dev, MOSFET8_OUTPORT_REG_ADD, buff, 1);
 }
 
 int mosfetGet(int dev, int* val)
@@ -267,7 +267,7 @@ int mosfetGet(int dev, int* val)
 	{
 		return ERROR;
 	}
-	if (FAIL == i2cMem8Read(dev, RELAY8_INPORT_REG_ADD, buff, 1))
+	if (FAIL == i2cMem8Read(dev, MOSFET8_INPORT_REG_ADD, buff, 1))
 	{
 		return ERROR;
 	}
@@ -286,13 +286,13 @@ int doBoardInit(int stack)
 		printf("Invalid stack level [0..7]!");
 		return ERROR;
 	}
-	add = (stack  + RELAY8_HW_I2C_BASE_ADD) ^ 0x07;
+	add = (stack  + MOSFET8_HW_I2C_BASE_ADD) ^ 0x07;
 	dev = i2cSetup(add);
 	if (dev == -1)
 	{
 		return ERROR;
 	}
-	if (ERROR == i2cMem8Read(dev, RELAY8_CFG_REG_ADD, buff, 1))
+	if (ERROR == i2cMem8Read(dev, MOSFET8_CFG_REG_ADD, buff, 1))
 	{
 		printf("Mosfet8 id %d not detected\n", stack);
 		return ERROR;
@@ -301,13 +301,13 @@ int doBoardInit(int stack)
 	{
 		// make all I/O pins output
 		buff[0] = 0;
-		if (0 > i2cMem8Write(dev, RELAY8_CFG_REG_ADD, buff, 1))
+		if (0 > i2cMem8Write(dev, MOSFET8_CFG_REG_ADD, buff, 1))
 		{
 			return ERROR;
 		}
 		// put all pins in 0-logic state
 		buff[0] = 0xff;
-		if (0 > i2cMem8Write(dev, RELAY8_OUTPORT_REG_ADD, buff, 1))
+		if (0 > i2cMem8Write(dev, MOSFET8_OUTPORT_REG_ADD, buff, 1))
 		{
 			return ERROR;
 		}
@@ -327,7 +327,7 @@ int boardCheck(int hwAdd)
 	{
 		return FAIL;
 	}
-	if (ERROR == i2cMem8Read(dev, RELAY8_CFG_REG_ADD, buff, 1))
+	if (ERROR == i2cMem8Read(dev, MOSFET8_CFG_REG_ADD, buff, 1))
 	{
 		return ERROR;
 	}
@@ -364,7 +364,7 @@ static void doMosfetWrite(int argc, char *argv[])
 	if (argc == 5)
 	{
 		pin = atoi(argv[3]);
-		if ( (pin < CHANNEL_NR_MIN) || (pin > RELAY_CH_NR_MAX))
+		if ( (pin < CHANNEL_NR_MIN) || (pin > MOSFET_CH_NR_MAX))
 		{
 			printf("Mosfet number value out of range\n");
 			exit(1);
@@ -468,7 +468,7 @@ static void doMosfetRead(int argc, char *argv[])
 	if (argc == 4)
 	{
 		pin = atoi(argv[3]);
-		if ( (pin < CHANNEL_NR_MIN) || (pin > RELAY_CH_NR_MAX))
+		if ( (pin < CHANNEL_NR_MIN) || (pin > MOSFET_CH_NR_MAX))
 		{
 			printf("Mosfet number value out of range!\n");
 			exit(1);
@@ -555,7 +555,7 @@ static void doList(int argc, char *argv[])
 
 	for (i = 0; i < 8; i++)
 	{
-		if (boardCheck(RELAY8_HW_I2C_BASE_ADD + i) == OK)
+		if (boardCheck(MOSFET8_HW_I2C_BASE_ADD + i) == OK)
 		{
 			ids[cnt] = i;
 			cnt++;
