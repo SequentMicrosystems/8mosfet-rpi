@@ -22,7 +22,7 @@ def mosfetToIO(mosfet):
   
 def IOToMosfet(iov):
 	val = 0
-  iov = iov ^ 0xff;
+  	iov = iov ^ 0xff;
 	for i in range(0, 8):
 		if (iov & mosfetMaskRemap[i]) != 0:
 			val = val + (1<< i)
