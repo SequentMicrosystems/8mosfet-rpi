@@ -4,7 +4,7 @@
 
 This is the command line and python functions to control the Sequent Microsystems 8 Mosfets Card for Raspberry PI
 
-Don't forget to enable I2C communication:
+First enable I2C communication:
 ```bash
 ~$ sudo raspi-config
 ```
@@ -29,3 +29,5 @@ If you clone the repository any update can be made with the following commands:
 ~/8mosfet-rpi$ git pull
 ~/8mosfet-rpi$ sudo make install
 ```  
+
+Python library available [here](https://github.com/SequentMicrosystems/8mosfet-rpi/tree/master/python)
