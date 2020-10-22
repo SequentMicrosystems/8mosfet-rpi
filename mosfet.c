@@ -196,7 +196,7 @@ int mosfetChSet(int dev, u8 channel, OutStateEnumType state)
 		printf("Invalid mosfet nr!\n");
 		return ERROR;
 	}
-	if (FAIL == i2cMem8Read(dev, MOSFET8_INPORT_REG_ADD, buff, 1))
+	if (FAIL == i2cMem8Read(dev, MOSFET8_OUTPORT_REG_ADD, buff, 1))
 	{
 		return FAIL;
 	}
@@ -234,7 +234,7 @@ int mosfetChGet(int dev, u8 channel, OutStateEnumType* state)
 		return ERROR;
 	}
 
-	if (FAIL == i2cMem8Read(dev, MOSFET8_INPORT_REG_ADD, buff, 1))
+	if (FAIL == i2cMem8Read(dev, MOSFET8_OUTPORT_REG_ADD, buff, 1))
 	{
 		return ERROR;
 	}
@@ -267,7 +267,7 @@ int mosfetGet(int dev, int* val)
 	{
 		return ERROR;
 	}
-	if (FAIL == i2cMem8Read(dev, MOSFET8_INPORT_REG_ADD, buff, 1))
+	if (FAIL == i2cMem8Read(dev, MOSFET8_OUTPORT_REG_ADD, buff, 1))
 	{
 		return ERROR;
 	}
@@ -294,7 +294,7 @@ int doBoardInit(int stack)
 	}
 	if (ERROR == i2cMem8Read(dev, MOSFET8_CFG_REG_ADD, buff, 1))
 	{
-		printf("Mosfet8 id %d not detected\n", stack);
+		printf("8-MOSFETS card id %d not detected\n", stack);
 		return ERROR;
 	}
 	if (buff[0] != 0) //non initialized I/O Expander
