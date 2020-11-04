@@ -2,7 +2,9 @@
 
 # 8mosfet-rpi
 
-This is the command line and python functions to control the Sequent Microsystems 8 Mosfets Card for Raspberry PI
+[![8mosfet-rpi](readmeres/8-MOSFET.jpg)](https://www.sequentmicrosystems.com)
+
+This is the command line and python functions to control the [8-MOSFETS Solid State Stackable Card for Raspberry Pi](https://sequentmicrosystems.com/product/8-mosfets-stackable-card-for-raspberry-pi/).
 
 First enable I2C communication:
 ```bash
