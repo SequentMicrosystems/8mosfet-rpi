@@ -4,7 +4,7 @@
 
 [![8mosfet-rpi](readmeres/8-MOSFET.jpg)](https://www.sequentmicrosystems.com)
 
-This is the command line and python functions to control the [8-MOSFETS Solid State Stackable Card for Raspberry Pi](https://sequentmicrosystems.com/product/8-mosfets-stackable-card-for-raspberry-pi/).
+This is the command line and python functions to control the [8-MOSFETS Solid State Stackable Card for Raspberry Pi](hhttps://sequentmicrosystems.com/product/raspberry-pi-mosfets-stackable-hat/).
 
 First enable I2C communication:
 ```bash
