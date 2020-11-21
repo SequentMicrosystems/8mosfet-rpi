@@ -1,9 +1,9 @@
 
-[![8mosfet-rpi](res/sequent.jpg)](https://sequentmicrosystems.com/index.php?route=product/product&path=33&product_id=50)
+[![8mosfet-rpi](res/sequent.jpg)](https://sequentmicrosystems.com)
 
 # lib8mosfet
 
-This is the python library to control the [8-MOSFETS Solid State Stackable Card for Raspberry Pi](https://sequentmicrosystems.com/product/8-mosfets-stackable-card-for-raspberry-pi/).
+This is the python library to control the [8-MOSFETS Solid State Stackable Card for Raspberry Pi](https://sequentmicrosystems.com/product/raspberry-pi-mosfets-stackable-hat/).
 
 ## Install
 
