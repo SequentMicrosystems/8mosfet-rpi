@@ -15,4 +15,4 @@ Connect 8mosfet card with the Raspberry Pi Replacement Cad then connect your fav
 
 ## Notice
 
-The library work only with TEENSY 3.2/3.5/3.6/4.0/4.1
+The library work only with TEENSY 3.2/3.5/3.6/4.0/4.1, Arduino UNO, Arduino NANO, Adafruit FEATHER, ESP32 DEVKIT V1
