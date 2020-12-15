@@ -32,4 +32,5 @@ If you clone the repository any update can be made with the following commands:
 ~/8mosfet-rpi$ sudo make install
 ```  
 
-Python library available [here](https://github.com/SequentMicrosystems/8mosfet-rpi/tree/master/python)
+### [Python library](https://github.com/SequentMicrosystems/8mosfet-rpi/tree/master/python)
+### [Arduino library](https://github.com/SequentMicrosystems/8mosfet-rpi/tree/master/arduino)
