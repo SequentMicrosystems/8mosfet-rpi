@@ -6,7 +6,7 @@ In order to use the [8-Mosfet](https://sequentmicrosystems.com/product/raspberry
 
 ## Install 
 
-Copy the SM_8mosfet directory inside of the libraries sub-directory of your sketchbook directory ("This PC > Documents > Arduino > libraries" for a windows PC) .Now launch the Arduino environment. If you open the Sketch > Import Library menu, you should see SM_8mosfet inside. The library will be compiled with sketches that use it.
+Copy the SM_8mosfet directory inside of the libraries sub-directory of your sketchbook directory ("This PC > Documents > Arduino > libraries" for a Windows PC or Home > arduino > libraries on Linux PC) .Now launch the Arduino environment. If you open the Sketch > Import Library menu, you should see SM_8mosfet inside. The library will be compiled with sketches that use it.
 
 ## Usage
 
