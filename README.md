@@ -34,3 +34,4 @@ If you clone the repository any update can be made with the following commands:
 
 ### [Python library](https://github.com/SequentMicrosystems/8mosfet-rpi/tree/master/python)
 ### [Arduino library](https://github.com/SequentMicrosystems/8mosfet-arduino)
+### [NodeRed](https://github.com/SequentMicrosystems/8mosfet-rpi/tree/master/node-red-contrib-sm-8mosfet)
