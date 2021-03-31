@@ -1,6 +1,6 @@
 # node-red-contrib-sm-8mosfet
 
-This is the node-red node to control Sequent Microsystems [8-MOSFETS Stackable Card for Raspberry Pi](https://sequentmicrosystems.com/product/raspberry-pi-mosfets-stackable-hat/).
+This is the node-red node to control Sequent Microsystems [8-MOSFETS Stackable Card for Raspberry Pi](https://sequentmicrosystems.com/collections/all-io-cards/products/raspberry-pi-mosfets-stackable-hat).
 
 ## Install
 
