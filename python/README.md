@@ -3,7 +3,7 @@
 
 # lib8mosfet
 
-This is the python library to control the [8-MOSFETS Solid State Stackable Card for Raspberry Pi](https://sequentmicrosystems.com/product/raspberry-pi-mosfets-stackable-hat/).
+This is the python library to control the [8-MOSFETS Solid State Stackable Card for Raspberry Pi](https://sequentmicrosystems.com/collections/all-io-cards/products/raspberry-pi-mosfets-stackable-hat).
 
 ## Install
 
